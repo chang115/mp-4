@@ -37,7 +37,6 @@ const JobsPage = () => {
           setError(data.error || 'Something went wrong.');
         }
       } catch (err) {
-        console.error('Error occurred while fetching data:', err);
         setError('Server error. Please try again later.');
       } finally {
         setLoading(false);
@@ -61,7 +60,7 @@ const JobsPage = () => {
             Job Results
           </Typography>
           <Typography variant="body1" color="textSecondary" mb={2}>
-            Showing jobs for "{keywords}" in "{location}"
+            Showing jobs for  &quot;{keywords}&quot; in &quot;{location}&quot;
           </Typography>
 
           {loading ? (
