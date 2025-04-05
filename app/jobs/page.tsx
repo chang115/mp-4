@@ -37,6 +37,7 @@ const JobsPage = () => {
           setError(data.error || 'Something went wrong.');
         }
       } catch (err) {
+        console.error('Error occurred while fetching data:', err);
         setError('Server error. Please try again later.');
       } finally {
         setLoading(false);
