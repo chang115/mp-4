@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense} from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Container, Card, Typography, Box, CircularProgress, Alert } from '@mui/material';
 import JobList from '../../components/JobList';
 
-const JobsPage = () => {
+const JobsPageContent = () => {
   const searchParams = useSearchParams();
   const keywords = searchParams.get('keywords') || '';
   const location = searchParams.get('location') || '';
@@ -76,5 +76,11 @@ const JobsPage = () => {
     </Box>
   );
 };
+
+const JobsPage = () => (
+  <Suspense fallback={<CircularProgress sx={{ my: 3 }} />}>
+    <JobsPageContent />
+  </Suspense>
+);
 
 export default JobsPage;
