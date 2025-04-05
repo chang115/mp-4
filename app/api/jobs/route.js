@@ -24,6 +24,7 @@ export async function POST(req) {
 
     return NextResponse.json(data);
   } catch (err) {
+    console.error('Error occurred while fetching data:', err);
     return NextResponse.json(
       { error: 'API is unavailable. Please try again later.' },
       { status: 500 }
